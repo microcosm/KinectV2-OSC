@@ -70,11 +70,29 @@ namespace KinectV2OSC.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 127.0.0.1.
+        /// </summary>
+        internal static string IPAddress {
+            get {
+                return ResourceManager.GetString("IPAddress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Kinect not found....
         /// </summary>
         internal static string NoSensorFoundText {
             get {
                 return ResourceManager.GetString("NoSensorFoundText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 12345.
+        /// </summary>
+        internal static string PortNumber {
+            get {
+                return ResourceManager.GetString("PortNumber", resourceCulture);
             }
         }
         

@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using Microsoft.Kinect;
 
-namespace KinectV2OSC.Model
+namespace KinectV2OSC.Model.Drawing
 {
     public class KinectMapper
     {

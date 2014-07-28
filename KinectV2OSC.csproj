@@ -49,6 +49,9 @@
     <Reference Include="Microsoft.Kinect">
       <HintPath>$(KINECTSDK20_DIR)\Assemblies\Microsoft.Kinect.dll</HintPath>
     </Reference>
+    <Reference Include="Rug.Osc">
+      <HintPath>packages\Rug.Osc.1.2.5\lib\Rug.Osc.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -82,15 +85,17 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\KinectCanvas.cs" />
-    <Compile Include="Model\KinectMapper.cs" />
-    <Compile Include="Model\Renderers\BackgroundRenderer.cs" />
-    <Compile Include="Model\Renderers\HandsRenderer.cs" />
-    <Compile Include="Model\Renderers\JointsRenderer.cs" />
-    <Compile Include="Model\Renderers\SkeletonRenderer.cs" />
-    <Compile Include="Model\Renderers\EdgeRenderer.cs" />
-    <Compile Include="Model\Renderers\Renderer.cs" />
-    <Compile Include="Model\FrameTimer.cs" />
+    <Compile Include="Model\Network\BodySender.cs" />
+    <Compile Include="Model\Drawing\KinectCanvas.cs" />
+    <Compile Include="Model\Drawing\KinectMapper.cs" />
+    <Compile Include="Model\Drawing\Renderers\BackgroundRenderer.cs" />
+    <Compile Include="Model\Drawing\Renderers\HandsRenderer.cs" />
+    <Compile Include="Model\Drawing\Renderers\JointsRenderer.cs" />
+    <Compile Include="Model\Drawing\Renderers\SkeletonRenderer.cs" />
+    <Compile Include="Model\Drawing\Renderers\EdgeRenderer.cs" />
+    <Compile Include="Model\Drawing\Renderers\Renderer.cs" />
+    <Compile Include="Model\Drawing\FrameTimer.cs" />
+    <Compile Include="Model\Network\MessageBuilder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -109,6 +114,7 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

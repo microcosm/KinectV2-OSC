@@ -10,7 +10,8 @@
     using System.Windows.Media;
     using System.Windows.Media.Imaging;
     using Microsoft.Kinect;
-    using Model;
+    using Model.Drawing;
+    using Model.Network;
 
     /// <summary>
     /// Interaction logic for MainWindow
@@ -23,6 +24,7 @@
         private Body[] bodies;
         private FrameTimer timer;
         private KinectCanvas kinectCanvas;
+        private BodySender bodySender;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -49,6 +51,7 @@
         {
             this.timer = new FrameTimer();
             this.InitKinect();
+            this.InitNetwork();
             this.InitWindowObjectAsViewModel();
         }
 
@@ -75,6 +78,13 @@
             }
 
             this.kinectCanvas = new KinectCanvas(this.kinectSensor, displaySize);
+        }
+
+        private void InitNetwork()
+        {
+            var ipAddress = Properties.Resources.IPAddress;
+            var port = Properties.Resources.PortNumber;
+            this.bodySender = new BodySender(ipAddress, port);
         }
 
         private void InitWindowObjectAsViewModel()
@@ -121,7 +131,9 @@
                     {
                         this.timer.AddFrame(frameReference);
                         this.setStatusText();
-                        this.drawBodiesToCanvas(frame);
+                        this.updateBodies(frame);
+                        this.kinectCanvas.Draw(this.bodies);
+                        this.bodySender.Send(this.bodies);
                     }
                 }
             }
@@ -138,7 +150,7 @@
             this.StatusText = string.Format(Properties.Resources.StandardStatusTextFormat, framesPerSecond, runningTime);
         }
 
-        private void drawBodiesToCanvas(BodyFrame frame)
+        private void updateBodies(BodyFrame frame)
         {
             if (this.bodies == null)
             {
@@ -149,7 +161,6 @@
             // As long as those body objects are not disposed and not set to null in the array,
             // those body objects will be re-used.
             frame.GetAndRefreshBodyData(this.bodies);
-            this.kinectCanvas.Draw(this.bodies);
         }
     }
 }

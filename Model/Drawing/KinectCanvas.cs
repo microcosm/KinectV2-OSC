@@ -11,9 +11,9 @@ using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using Microsoft.Kinect;
-using KinectV2OSC.Model.Renderers;
+using KinectV2OSC.Model.Drawing.Renderers;
 
-namespace KinectV2OSC.Model
+namespace KinectV2OSC.Model.Drawing
 {
     /// <summary>
     /// Draw 2D shapes from Kinect into a drawing group

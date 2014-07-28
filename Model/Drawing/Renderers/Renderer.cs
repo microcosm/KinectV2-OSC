@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using Microsoft.Kinect;
 
-namespace KinectV2OSC.Model.Renderers
+namespace KinectV2OSC.Model.Drawing.Renderers
 {
     public abstract class Renderer
     {

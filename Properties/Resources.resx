@@ -120,8 +120,14 @@
   <data name="InitializingStatusTextFormat" xml:space="preserve">
     <value>Initializing</value>
   </data>
+  <data name="IPAddress" xml:space="preserve">
+    <value>127.0.0.1</value>
+  </data>
   <data name="NoSensorFoundText" xml:space="preserve">
     <value>Kinect not found...</value>
+  </data>
+  <data name="PortNumber" xml:space="preserve">
+    <value>12345</value>
   </data>
   <data name="StandardStatusTextFormat" xml:space="preserve">
     <value>FPS: {0:N1} / {1}</value>

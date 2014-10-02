@@ -5,7 +5,7 @@ Broadcasts skeletal data from the KinectV2 sensor over OSC.
 Messages are sent in the format:
 
 ```sh
-Address: /body/{bodyId}/joint/{jointId}
+Address: /bodies/{bodyId}/joints/{jointId}
 Values: - float: positionX
         - float: positionY
         - float: positionZ

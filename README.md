@@ -15,6 +15,10 @@ Instructions
 
 ![Screenshot of KinectV2OSC in action](screenshot.png)
 
+- To send to another destination, change the IP and port number here, and then re-launch:
+
+![How to configure IP and port number](config.png)
+
 OSC
 ---
 OSC messages are continuously sent in this format, for each joint on each skeleton:

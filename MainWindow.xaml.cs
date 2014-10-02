@@ -61,6 +61,20 @@
             }
         }
 
+        private string oscText;
+        public string OscText
+        {
+            get { return this.oscText; }
+            set
+            {
+                this.oscText = value;
+                if (this.PropertyChanged != null)
+                {
+                    this.PropertyChanged(this, new PropertyChangedEventArgs("OscText"));
+                }
+            }
+        }
+
         public MainWindow()
         {
             this.timer = new FrameTimer();
@@ -163,6 +177,7 @@
             var runningTime = timer.GetRunningTime();
             this.FramesText = string.Format(Properties.Resources.StandardFramesTextFormat, framesPerSecond);
             this.UptimeText = string.Format(Properties.Resources.StandardUptimeTextFormat, runningTime);
+            this.OscText = bodySender.GetStatusText();
         }
 
         private void updateBodies(BodyFrame frame)

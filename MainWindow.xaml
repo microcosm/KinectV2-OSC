@@ -18,11 +18,14 @@
     <Viewbox Grid.Row="1" HorizontalAlignment="Center">
       <Image Source="{Binding ImageSource}" Stretch="UniformToFill" />
     </Viewbox>
-    <StatusBar Grid.Row="2" HorizontalAlignment="Stretch" Name="framesBar" Background="Transparent" Foreground="{StaticResource BlueBrush}">
+    <StatusBar HorizontalAlignment="Stretch" Name="framesBar" Background="Transparent" Foreground="{StaticResource BlueBrush}">
       <StatusBarItem Content="{Binding FramesText}" FontWeight="Bold" FontSize="90" Margin="340 400 20 20" />
     </StatusBar>
-    <StatusBar Grid.Row="2" HorizontalAlignment="Stretch" Name="uptimeBar" Background="Transparent" Foreground="{StaticResource BlueBrush}">
+    <StatusBar HorizontalAlignment="Stretch" Name="uptimeBar" Background="Transparent" Foreground="{StaticResource BlueBrush}">
       <StatusBarItem Content="{Binding UptimeText}" FontWeight="Bold" FontSize="30" Margin="36 450 20 20" />
+    </StatusBar>
+    <StatusBar HorizontalAlignment="Stretch" Name="oscBar" Background="Transparent" Foreground="{StaticResource BlueBrush}">
+      <StatusBarItem Content="{Binding OscText}" FontWeight="Bold" FontSize="30" Margin="36 -370 20 20" />
     </StatusBar>
   </Grid>
 </Window>

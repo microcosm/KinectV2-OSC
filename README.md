@@ -11,7 +11,7 @@ Instructions
 - Note that you need Windows 8.1, USB3, and a new V2 Kinect sensor
 - Download and install the [Kinect for Windows SDK 2.0 Public Preview](http://www.microsoft.com/en-us/download/details.aspx?id=43661)
 - Install Visual Studio (I am using [Visual Studio Express 2013 for Windows Desktop](http://www.visualstudio.com/en-us/products/visual-studio-express-vs.aspx) - scroll down to find the download link)
-- Open KinectV2OSC.sln in Visual Studio, and hit the green 'Start' button. You should see a screen like this:
+- Clone this repo, and open KinectV2OSC.sln in Visual Studio. Hit the green 'Start' button. You should see a screen like this:
 
 ![Screenshot of KinectV2OSC in action](screenshot.png)
 

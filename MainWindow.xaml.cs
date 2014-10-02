@@ -84,11 +84,11 @@
 
                 this.bodyFrameReader = this.kinectSensor.BodyFrameSource.OpenReader();
 
-                this.FramesText = Properties.Resources.InitializingStatusTextFormat;
+                this.UptimeText = Properties.Resources.InitializingStatusTextFormat;
             }
             else
             {
-                this.FramesText = Properties.Resources.NoSensorFoundText;
+                this.UptimeText = Properties.Resources.NoSensorFoundText;
             }
 
             this.kinectCanvas = new KinectCanvas(this.kinectSensor, displaySize);

@@ -129,7 +129,10 @@
   <data name="PortNumber" xml:space="preserve">
     <value>12345</value>
   </data>
-  <data name="StandardStatusTextFormat" xml:space="preserve">
-    <value>FPS: {0:N1} / {1}</value>
+  <data name="StandardFramesTextFormat" xml:space="preserve">
+    <value>{0:N1}fps</value>
+  </data>
+  <data name="StandardUptimeTextFormat" xml:space="preserve">
+    <value>{0:hh\:mm\:ss}</value>
   </data>
 </root>

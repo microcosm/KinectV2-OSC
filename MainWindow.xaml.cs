@@ -33,16 +33,30 @@
             get { return this.imageSource; }
         }
 
-        private string statusText;
-        public string StatusText
+        private string framesText;
+        public string FramesText
         {
-            get { return this.statusText; }
+            get { return this.framesText; }
             set
             {
-                this.statusText = value;
+                this.framesText = value;
                 if (this.PropertyChanged != null)
                 {
-                    this.PropertyChanged(this, new PropertyChangedEventArgs("StatusText"));
+                    this.PropertyChanged(this, new PropertyChangedEventArgs("FramesText"));
+                }
+            }
+        }
+
+        private string uptimeText;
+        public string UptimeText
+        {
+            get { return this.uptimeText; }
+            set
+            {
+                this.uptimeText = value;
+                if (this.PropertyChanged != null)
+                {
+                    this.PropertyChanged(this, new PropertyChangedEventArgs("UptimeText"));
                 }
             }
         }
@@ -70,11 +84,11 @@
 
                 this.bodyFrameReader = this.kinectSensor.BodyFrameSource.OpenReader();
 
-                this.StatusText = Properties.Resources.InitializingStatusTextFormat;
+                this.FramesText = Properties.Resources.InitializingStatusTextFormat;
             }
             else
             {
-                this.StatusText = Properties.Resources.NoSensorFoundText;
+                this.FramesText = Properties.Resources.NoSensorFoundText;
             }
 
             this.kinectCanvas = new KinectCanvas(this.kinectSensor, displaySize);
@@ -147,7 +161,8 @@
         {
             var framesPerSecond = timer.GetFramesPerSecond();
             var runningTime = timer.GetRunningTime();
-            this.StatusText = string.Format(Properties.Resources.StandardStatusTextFormat, framesPerSecond, runningTime);
+            this.FramesText = string.Format(Properties.Resources.StandardFramesTextFormat, framesPerSecond);
+            this.UptimeText = string.Format(Properties.Resources.StandardUptimeTextFormat, runningTime);
         }
 
         private void updateBodies(BodyFrame frame)

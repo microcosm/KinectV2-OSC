@@ -97,11 +97,20 @@ namespace KinectV2OSC.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to FPS: {0:N1} / {1}.
+        ///   Looks up a localized string similar to {0:N1}fps.
         /// </summary>
-        internal static string StandardStatusTextFormat {
+        internal static string StandardFramesTextFormat {
             get {
-                return ResourceManager.GetString("StandardStatusTextFormat", resourceCulture);
+                return ResourceManager.GetString("StandardFramesTextFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0:hh\:mm\:ss}.
+        /// </summary>
+        internal static string StandardUptimeTextFormat {
+            get {
+                return ResourceManager.GetString("StandardUptimeTextFormat", resourceCulture);
             }
         }
     }

@@ -14,6 +14,7 @@ namespace KinectV2OSC.Model.Network
         {
             var address = String.Format("/body/{0}/joint/{1}", body.TrackingId, joint.Key);
             var position = joint.Value.Position;
+            //System.Diagnostics.Debug.WriteLine(address);
             return new OscMessage(address, position.X, position.Y, position.Z);
         }
     }

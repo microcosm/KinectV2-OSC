@@ -10,13 +10,13 @@ Values: - float: positionX
         - float: positionY
         - float: positionZ
 ```
+
+Instructions
+------------
+- Note that you need Windows 8.1, USB3, and a new V2 Kinect sensor
+- Download and install the [Kinect for Windows SDK 2.0 Public Preview](http://www.microsoft.com/en-us/download/details.aspx?id=43661)
+- Install Visual Studio (I am using [Visual Studio Express 2013 for Windows Desktop](http://www.visualstudio.com/en-us/products/visual-studio-express-vs.aspx) - scroll down to find the download link)
+
 Dependencies
 ------------
-- Kinect for Windows June SDK Update (You must be enrolled in the [Developer Preview Program](http://www.microsoft.com/en-us/kinectforwindowsdev/newdevkit.aspx) to download this SDK)
 - [Rug OSC](https://www.nuget.org/packages/Rug.Osc/) to format and send messages
-
-Disclaimer
-----------
-This is preliminary software and/or hardware and APIs are preliminary and subject to change.
-
-(If you want to share code written against the Microsoft SDK you are asked to include this disclaimer along with your code)

@@ -19,6 +19,7 @@ namespace KinectV2OSC.Model.Drawing.Renderers
         protected DrawingContext drawingContext;
 
         protected Body body;
+        protected Inspector inspector;
         protected IReadOnlyDictionary<JointType, Joint> joints;
         protected IReadOnlyDictionary<JointType, Point> drawingPoints;
 
@@ -26,6 +27,7 @@ namespace KinectV2OSC.Model.Drawing.Renderers
 
         public Renderer(Size displaySize)
         {
+            this.inspector = new Inspector();
             this.displaySize = displaySize;
         }
 

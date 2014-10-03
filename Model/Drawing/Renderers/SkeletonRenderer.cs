@@ -82,32 +82,17 @@ namespace KinectV2OSC.Model.Drawing.Renderers
             Joint joint1 = joints[jointType1];
             Joint joint2 = joints[jointType2];
 
-            if (this.IsLowConfidence(joint1, joint2)) return;
-
+            if (this.inspector.IsLowConfidence(joint1, joint2)) return;
             Pen pen = this.ChoosePen(joint1, joint2);
+
             drawingContext.DrawLine(pen, drawingPoints[jointType1], drawingPoints[jointType2]);
-        }
-
-        private bool IsLowConfidence(Joint joint1, Joint joint2)
-        {
-            if (joint1.TrackingState == TrackingState.NotTracked || joint2.TrackingState == TrackingState.NotTracked)
-            {
-                return true;
-            }
-
-            if (joint1.TrackingState == TrackingState.Inferred && joint2.TrackingState == TrackingState.Inferred)
-            {
-                return true;
-            }
-
-            return false;
         }
 
         private Pen ChoosePen(Joint joint1, Joint joint2)
         {
             Pen pen = this.inferredBonePen;
 
-            if (joint1.TrackingState == TrackingState.Tracked && joint2.TrackingState == TrackingState.Tracked)
+            if (this.inspector.GetCombinedTrackingState(joint1, joint2) == TrackingState.Tracked)
             {
                 pen = this.trackedBonePen;
             }

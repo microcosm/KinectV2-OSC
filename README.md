@@ -25,9 +25,10 @@ OSC messages are continuously sent in this format, for each joint on each skelet
 
 ```sh
 Address: /bodies/{bodyId}/joints/{jointId}
-Values: - float: positionX
-        - float: positionY
-        - float: positionZ
+Values: - float:  positionX
+        - float:  positionY
+        - float:  positionZ
+        - string: trackingState (Tracked, NotTracked or Inferred)
 ```
 
 Project dependencies

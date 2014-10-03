@@ -85,6 +85,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\Inspector.cs" />
     <Compile Include="Model\Network\BodySender.cs" />
     <Compile Include="Model\Drawing\KinectCanvas.cs" />
     <Compile Include="Model\Drawing\KinectMapper.cs" />

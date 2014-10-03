@@ -60,11 +60,19 @@ namespace KinectV2OSC.Model.Network
 
         private void Send(Body body)
         {
+            OscMessage message;
+
             foreach (var joint in body.Joints)
             {
-                var message = messageBuilder.Build(body, joint);
+                message = messageBuilder.BuildJointMessage(body, joint);
                 this.oscSender.Send(message);
             }
+
+            message = messageBuilder.BuildHandMessage(body, "Left", body.HandLeftState, body.HandLeftConfidence);
+            this.oscSender.Send(message);
+
+            message = messageBuilder.BuildHandMessage(body, "Right", body.HandRightState, body.HandRightConfidence);
+            this.oscSender.Send(message);
         }
     }
 }

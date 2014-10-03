@@ -21,7 +21,7 @@ Instructions
 
 OSC
 ---
-OSC messages are continuously sent in this format, for each joint on each skeleton:
+OSC messages are sent every frame. For each detected body, you will get a set of joints:
 
 ```sh
 Address: /bodies/{bodyId}/joints/{jointId}
@@ -29,6 +29,14 @@ Values: - float:  positionX
         - float:  positionY
         - float:  positionZ
         - string: trackingState (Tracked, NotTracked or Inferred)
+```
+
+...and a pair of hands:
+
+```sh
+Address: /bodies/{bodyId}/hands/{handId} (Left or Right)
+Values: - string: handState (Open, Closed, NotTracked, Unknown)
+        - string: handConfidence (High, Low)
 ```
 
 Project dependencies

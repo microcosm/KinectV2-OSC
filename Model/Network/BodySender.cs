@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Collections;
 using Microsoft.Kinect;
 using Rug.Osc;
 
@@ -11,16 +12,18 @@ namespace KinectV2OSC.Model.Network
 {
     public class BodySender
     {
-        private OscSender oscSender;
         private MessageBuilder messageBuilder;
-        private string ipAddress;
+        private List<OscSender> oscSenders;
+        private List<IPAddress> ipAddresses;
+        private OscMessage message;
         private string port;
         private string status;
 
-        public BodySender(string ipAddress, string port)
+        public BodySender(string delimitedIpAddresses, string port)
         {
             this.status = "";
-            this.ipAddress = ipAddress;
+            this.ipAddresses = this.Parse(delimitedIpAddresses);
+            this.oscSenders = new List<OscSender>();
             this.port = port;
             this.messageBuilder = new MessageBuilder();
             this.TryConnect();
@@ -28,18 +31,23 @@ namespace KinectV2OSC.Model.Network
 
         private void TryConnect()
         {
-            try
+            foreach(var ipAddress in this.ipAddresses)
             {
-                this.oscSender = new OscSender(IPAddress.Parse(this.ipAddress), int.Parse(this.port));
-                this.oscSender.Connect();
-                status = "OSC connection established\nIP: " + ipAddress + "\nPort: " + port;
+                try
+                {
+                    var oscSender = new OscSender(ipAddress, int.Parse(this.port));
+                    oscSender.Connect();
+                    this.oscSenders.Add(oscSender);
+                    this.status += "OSC connection established on\nIP: " + ipAddress + "\nPort: " + port + "\n";
+                }
+                catch (Exception e)
+                {
+                    this.status += "Unable to make OSC connection on\nIP: " + ipAddress + "\nPort: " + port + "\n";
+                    Console.WriteLine("Exception on OSC connection...");
+                    Console.WriteLine(e.StackTrace);
+                }
             }
-            catch (Exception e)
-            {
-                status = "Unable to make OSC connection\nIP: " + ipAddress + "\nPort: " + port;
-                Console.WriteLine("Exception on OSC connection...");
-                Console.WriteLine(e.StackTrace);
-            }
+
         }
 
         public void Send(Body[] bodies)
@@ -48,31 +56,58 @@ namespace KinectV2OSC.Model.Network
             {
                 if (body.IsTracked)
                 {
-                    Send(body);
+                    this.Send(body);
                 }
             }
         }
 
         public string GetStatusText()
         {
-            return status;
+            return this.status;
         }
 
         private void Send(Body body)
         {
-            OscMessage message;
-
             foreach (var joint in body.Joints)
             {
                 message = messageBuilder.BuildJointMessage(body, joint);
-                this.oscSender.Send(message);
+                this.Broadcast(message);
             }
 
             message = messageBuilder.BuildHandMessage(body, "Left", body.HandLeftState, body.HandLeftConfidence);
-            this.oscSender.Send(message);
+            this.Broadcast(message);
 
             message = messageBuilder.BuildHandMessage(body, "Right", body.HandRightState, body.HandRightConfidence);
-            this.oscSender.Send(message);
+            this.Broadcast(message);
+        }
+
+        private void Broadcast(OscMessage message)
+        {
+            foreach (var oscSender in this.oscSenders)
+            {
+                oscSender.Send(message);
+            }
+        }
+
+        private List<IPAddress> Parse(string delimitedIpAddresses)
+        {
+            try
+            {
+                var ipAddressStrings = delimitedIpAddresses.Split(',');
+                var ipAddresses = new List<IPAddress>();
+                foreach (var ipAddressString in ipAddressStrings)
+                {
+                    ipAddresses.Add(IPAddress.Parse(ipAddressString));
+                }
+                return ipAddresses;
+            }
+            catch (Exception e)
+            {
+                status += "Unable to parse IP address string: '" + delimitedIpAddresses + "'";
+                Console.WriteLine("Exception parsing IP address string...");
+                Console.WriteLine(e.StackTrace);
+                return null;
+            }
         }
     }
 }

@@ -19,6 +19,8 @@ Instructions
 
 ![How to configure IP and port number](config.png)
 
+You can enter a single IP Address or multiple, separated by commas.
+
 OSC
 ---
 OSC messages are sent every frame. For each detected body, you will get a set of joints:

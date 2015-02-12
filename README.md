@@ -8,7 +8,7 @@ Handy if you want to quickly get skeleton data off of Windows and onto Mac, or i
 
 Just run the app
 ----------------
-If you just want to run the app without digging into the code, you can just follow these instructions:
+If you just want to run the app without digging into the code, you can simply follow these instructions:
 - Note that you need Windows 8.1, a USB3 port, and a new V2 Kinect sensor
 - Download and install the [Kinect for Windows SDK 2.0 Public Preview](http://www.microsoft.com/en-us/download/details.aspx?id=43661)
 - Download the release executable and run it. You should see a screen like this:
@@ -16,11 +16,13 @@ If you just want to run the app without digging into the code, you can just foll
 ![Screenshot of KinectV2OSC in action](screenshot.png)
 
 - By default, the executable broadcasts to port `12345` on IP address `127.0.0.1`
-- To broadcast elsewhere, create a file named `ip.txt in the same folder as your executable. Give the file a comma-separated list of IP asddresses to broadcast to, i.e.
+- To broadcast elsewhere, create a file named `ip.txt` in the same folder as the executable. Give the file a comma-separated list of IP asddresses to broadcast to, i.e.
 
 ```sh
 127.0.0.1,192.168.1.100,192.168.1.112
 ```
+
+- Re-launch the executable
 
 Compile from source
 -------------------
@@ -28,7 +30,7 @@ If you want to be able to change the port number, or edit the code, you will nee
 - Note that you need Windows 8.1, a USB3 port, and a new V2 Kinect sensor
 - Download and install the [Kinect for Windows SDK 2.0 Public Preview](http://www.microsoft.com/en-us/download/details.aspx?id=43661)
 - Install Visual Studio (I am using [Visual Studio Express 2013 for Windows Desktop](http://www.visualstudio.com/en-us/products/visual-studio-express-vs.aspx) - scroll down to find the download link)
-- MAKE SURE you are using Visual Studio Express for Windows Desktop - you have to scroll down to find that link!!
+- MAKE SURE you are using Visual Studio Express for **Windows Desktop** - you have to scroll down to find that link!!
 - Clone this repo, and open KinectV2OSC.sln in Visual Studio. Hit the green 'Start' button. You should see a screen like this:
 
 ![Screenshot of KinectV2OSC in action](screenshot.png)

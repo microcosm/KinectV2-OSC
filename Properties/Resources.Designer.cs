@@ -70,11 +70,11 @@ namespace KinectV2OSC.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 127.0.0.1.
+        ///   Looks up a localized string similar to ip.txt.
         /// </summary>
-        internal static string IPAddress {
+        internal static string IpAddressFileName {
             get {
-                return ResourceManager.GetString("IPAddress", resourceCulture);
+                return ResourceManager.GetString("IpAddressFileName", resourceCulture);
             }
         }
         

@@ -110,7 +110,7 @@
 
         private void InitNetwork()
         {
-            var ipAddress = Properties.Resources.IPAddress;
+            var ipAddress = ReadIpAddressCsv();
             var port = Properties.Resources.PortNumber;
             this.bodySender = new BodySender(ipAddress, port);
         }
@@ -120,6 +120,16 @@
             this.imageSource = this.kinectCanvas.GetDrawingImage();
             this.DataContext = this;
             this.InitializeComponent();
+        }
+
+        private string ReadIpAddressCsv()
+        {
+            string ipAddressCsv = "";
+            System.IO.TextReader file = new StreamReader(Properties.Resources.IpAddressFileName);
+            ipAddressCsv = file.ReadLine();
+            file.Close();
+            file = null;
+            return ipAddressCsv;
         }
 
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)

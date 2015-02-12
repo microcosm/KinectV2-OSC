@@ -61,6 +61,15 @@ namespace KinectV2OSC.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 127.0.0.1.
+        /// </summary>
+        internal static string DefaultIpAddressCsv {
+            get {
+                return ResourceManager.GetString("DefaultIpAddressCsv", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Initializing.
         /// </summary>
         internal static string InitializingStatusTextFormat {

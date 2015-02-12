@@ -124,11 +124,18 @@
 
         private string ReadIpAddressCsv()
         {
-            string ipAddressCsv = "";
-            System.IO.TextReader file = new StreamReader(Properties.Resources.IpAddressFileName);
-            ipAddressCsv = file.ReadLine();
-            file.Close();
-            file = null;
+            string ipAddressCsv;
+            try
+            {
+                System.IO.TextReader file = new StreamReader(Properties.Resources.IpAddressFileName);
+                ipAddressCsv = file.ReadLine();
+                file.Close();
+                file = null;
+            }
+            catch(Exception)
+            {
+                ipAddressCsv = Properties.Resources.DefaultIpAddressCsv;
+            }
             return ipAddressCsv;
         }
 

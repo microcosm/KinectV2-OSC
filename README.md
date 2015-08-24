@@ -10,7 +10,7 @@ Just run the app
 ----------------
 If you just want to run the app without digging into the code, you can simply follow these instructions:
 - Note that you need Windows 8.1, a USB3 port, and a new V2 Kinect sensor
-- Download and install the [Kinect for Windows SDK 2.0 Public Preview](http://www.microsoft.com/en-us/download/details.aspx?id=43661)
+- Download and install the [Kinect for Windows SDK 2.0](http://www.microsoft.com/en-us/kinectforwindows/develop/default.aspx)
 - Download the release executable and run it. You should see a screen like this:
 
 ![Screenshot of KinectV2OSC in action](screenshot.png)
@@ -28,7 +28,7 @@ Compile from source
 -------------------
 If you want to be able to change the port number, or edit the code, you will need to compile from source. Follow these instructions:
 - Note that you need Windows 8.1, a USB3 port, and a new V2 Kinect sensor
-- Download and install the [Kinect for Windows SDK 2.0 Public Preview](http://www.microsoft.com/en-us/download/details.aspx?id=43661)
+- Download and install the [Kinect for Windows SDK 2.0](http://www.microsoft.com/en-us/kinectforwindows/develop/default.aspx)
 - Install Visual Studio (I am using [Visual Studio Express 2013 for Windows Desktop](http://www.visualstudio.com/en-us/products/visual-studio-express-vs.aspx) - scroll down to find the download link)
 - MAKE SURE you are using Visual Studio Express for **Windows Desktop** - you have to scroll down to find that link!!
 - Clone this repo, and open KinectV2OSC.sln in Visual Studio. Hit the green 'Start' button. You should see a screen like this:
